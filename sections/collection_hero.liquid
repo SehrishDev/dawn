@@ -1,0 +1,249 @@
+<style>
+    .collection_hero{
+     width:100%;
+     height:600px;
+  }
+    .collection_hero div{
+      height:100%;
+    }
+    .collection_hero .container{
+      width:100%;
+   }
+   .inner_collection_hero{
+     position:relative;
+   }
+    .hero_mobileimg {
+     display: none;
+   }
+    .collection_banner_image{
+     width:100%;
+     height:100%;
+   }
+    .collection_banner_image img{
+       width:100%;
+       height:100%;
+       background-position: center;
+       background-size: cover;
+       background-repeat: no-repeat;
+       object-fit:cover;
+    }
+ 
+     .collection_collection_hero_content{ 
+       position: absolute;
+       top: 0%;
+       left: 0%;
+       display:flex;
+       flex-direction:column;
+       width:100%;
+       padding:100px;    
+   }
+     .collection_collection_hero_content h2{
+       font-family: "Gunner Kennels";
+       font-size: 72px;
+       font-weight: 400;
+       text-transform: lowercase;
+      margin-bottom:30px !important;
+   }
+   .collection_collection_hero_content span{
+       font-family: Avenir;
+       font-size: 24px;
+       font-weight: 500;
+       max-width:720px; 
+   }
+   
+ 
+   @media only screen and (max-width: 991px) {
+     .collection_collection_hero_content{
+     }
+       .collection_hero{
+         width:100%;
+         height:auto;
+        
+  }
+    .collection_hero h2 {
+       font-family: "Gunner Kennels";
+       font-size: 40px;
+       font-weight: 400;
+       margin-bottom:32px !important;
+           }
+ 
+   .hero_mobileimg {
+       display: block;
+   }
+     .hero_desktopimg {
+       display: none;
+   }
+    
+      .collection_hero span{
+         font-family: Avenir;
+         font-size: 16px;
+         font-weight: 500;
+        
+  }
+     
+   }
+   @media only screen and (max-width: 550px) {
+       .collection_collection_hero_content{ 
+       padding:50px 30px;    
+   }
+   }
+   </style>
+ 
+ 
+ 
+ {% style %}
+   #collection_hero-{{ section.id }} .collection_collection_hero_content span p,  
+   #collection_hero-{{ section.id }} .collection_collection_hero_content span {
+     {% if section.settings.desktop_content_alignment  == 'left' %}
+       text-align: left;
+       margin: 0;
+     {% elsif section.settings.desktop_content_alignment  == 'right' %}
+       text-align: right;
+       margin: 0;
+     {% elsif section.settings.desktop_content_alignment  == 'centered' %}
+       text-align: center;
+       margin: 0;
+     {% endif %}
+   }
+   #collection_hero-{{ section.id }} .collection_collection_hero_content {
+     {% if section.settings.desktop_content_alignment  == 'centered' %}
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     {% elsif section.settings.desktop_content_alignment  == 'left' %}
+       justify-content: center;
+       align-items: start;
+       text-align: start;
+       {% else %}
+        justify-content: center;
+        align-items: end;
+     {% endif %}
+   }
+   #collection_hero-{{section.id}} h2,
+   #collection_hero-{{section.id}} span,
+   #collection_hero-{{section.id}} span p {
+     color: {{section.settings.desktop_font_color}};
+   }
+  
+ {% endstyle %}
+ <div class="collection_hero" id="collection_hero-{{ section.id }}">
+   <div class="containerr">
+     <div class="inner_collection_hero">
+       <div class="collection_banner_bg">
+               {% if section.settings.background_type == 'image' %}
+                 <div class="collection_banner_image">
+                   {% if section.settings.desktop_image != blank %}
+                     {{ section.settings.desktop_image | image_url: width: section.settings.desktop_image.width | image_tag: class:'hero_desktopimg', loading: 'lazy' }}
+                   {% endif %}
+                   {% if section.settings.mobile_image != blank %}
+                     {{ section.settings.mobile_image | image_url: width: section.settings.mobile_image.width | image_tag: class:'hero_mobileimg', loading: 'lazy' }}
+                   {% endif %}
+                 </div>
+                 {% else %}
+                 <div class="collection_banner_video">
+                   {% if section.settings.desktop_video != blank %}
+                     {{ section.settings.desktop_video | video_tag: autoplay: true, loop: true, muted: true, class:'hero_desktop' }}
+                   {% endif %}
+                   {% if section.settings.mobile_video != blank %}
+                     {{ section.settings.mobile_video | video_tag: autoplay: true, loop: true, muted: true, class:'hero_mobile' }}
+                   {% endif %}
+                 </div>
+               {% endif %}
+             </div>
+                  <div class="collection_collection_hero_content">
+               {% if section.settings.desktop_headline != blank %}
+                 <h2 class="desktop">{{ section.settings.desktop_headline }}</h2>
+               {% endif %}
+               {% if section.settings.desktop_desc != blank %}
+                 <span class="desktop">{{ section.settings.desktop_desc }}</span>
+               {% endif %} 
+             </div>
+     </div>
+   </div>
+ </div>
+ {% schema %}
+   {
+     "name": "collection_hero",
+     "settings": [
+       {
+       "type": "select",
+       "id": "background_type",
+       "label": "Background Type",
+       "options": [
+         {
+           "value": "image",
+           "label": "Image"
+         },
+         {
+           "value": "video",
+           "label": "video"
+         }
+       ],
+       "default": "image"
+     },
+         {
+       "type": "image_picker",
+       "id": "desktop_image",
+       "label": "Add desktop Image"
+     },
+         {
+       "type": "image_picker",
+       "id": "mobile_image",
+       "label": "Add Mobile Image"
+     },
+         {
+             "type": "video",
+             "id": "desktop_video",
+             "label": "Add Desktop Video"
+           },  
+       {
+             "type": "video",
+             "id": "mobile_video",
+             "label": "Add Mobile Video"
+           },
+         {
+       "type": "text",
+       "id": "desktop_headline", 
+       "default": "Made in Nashville",
+       "label": "Add Heading"
+     },
+         {
+       "type": "richtext",
+       "id": "desktop_desc",
+       "default": "<p>Desktop Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+       "label": "Add Description"
+     },
+        {
+       "type": "select",
+       "id": "desktop_content_alignment",
+       "label": "Content Alignment",
+       "options": [
+         {
+           "value": "centered",
+           "label": "Centered"
+         },
+          {
+           "value": "left",
+           "label": "Left" 
+         },
+          {
+           "value": "right",
+           "label": "Right" 
+         }
+ 
+       ],
+       "default": "centered" 
+     },
+         {
+       "type": "color",
+      "id": "desktop_font_color",
+       "label": "Desktop Font Color"
+     }
+     ],
+     "presets": [
+       {
+         "name": "collection_hero"
+       }
+     ]
+   }
+ {% endschema %}
