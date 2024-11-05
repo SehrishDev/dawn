@@ -31,8 +31,59 @@
     display: flex;
     align-items: center;
   }
-  .featured_unicorn h3{
-    text-align:center;
+  .featured_unicorn h3 {
+    text-align: center;
+  }
+  .content {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+  }
+
+  .close {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  .popup_image {
+    width: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  .popup_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: flex;
+  }
+  .popup{
+    padding: 5px 10px;
+    background-color: rgb(11, 54, 11);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 60px auto;
   }
   @media screen and (max-width: 991px) {
     .featured_unicorn .inner_featured_unicorn {
@@ -40,7 +91,6 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 30px;
     }
-
   }
 </style>
 <section class="featured_unicorn">
@@ -69,88 +119,47 @@
         </div>
       {% endfor %}
     </div>
+  </div>
 
-    <style>
-      .content {
-          display: none; 
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0, 0, 0, 0.5); 
-          justify-content: center;
-          align-items: center;
-          
-      }
+  <h3>hellooo</h3>
+  {% if section.settings.popup_btn != blank %}
+    <button class="popup">{{ section.settings.popup_btn }}</button>
+  {% endif %}
 
-      .popup-content {
-          background: white;
-          padding: 20px;
-          border-radius: 5px;
-          width: 300px;
-          text-align: center;
-      }
-
-      .close {
-          margin-top: 10px;
-          padding: 5px 10px;
-          background-color: #f44336;
-          color: white;
-          border: none;
-          border-radius: 3px;
-          cursor: pointer;
-          font-size:24px;
-      }
-      .popup_image{
-      width:150px;
-      border-radius:50%;
-      margin:0 auto;
-}
-.popup_image img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    display:flex;
-}
-  </style>
-
-    
-      {% if section.settings.popup_heading !=blank %}
-        <button class="popup">{{ section.settings.popup_heading }} </button>
+  <div class="content">
+    <div class="popup-content">
+      <div class="popup_image">
+        {% if section.settings.popup_image != blank %}
+          {{
+            section.settings.popup_image
+            | image_url: width: section.settings.image.width
+            | image_tag: loading: 'lazy'
+          }}
+        {% endif %}
+      </div>
+      {% if section.settings.popup_heading != blank %}
+        <h2>{{ section.settings.popup_heading }}</h2>
       {% endif %}
-
-    <div class="content">
-        <div class="popup-content">
-           <div class="popup_image">
-          {% if section.settings.popup_image != blank %}
-            {{ section.settings.popup_image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy' }}
-          {% endif %}
-        </div>
-          {% if section.settings.popup_heading !=blank %}
-            <h2>{{ section.settings.popup_heading }} </h2>
-          {% endif %}
-          {% if section.settings.popup_text !=blank %}
-            <p>{{ section.settings.popup_text }} </p>
-          {% endif %}
-            <button class="close"><i class="fa fa-close"></i></button>
-        </div>
+      {% if section.settings.popup_text != blank %}
+        <p>{{ section.settings.popup_text }}</p>
+      {% endif %}
+      <button class="close"><i class="fa fa-close"></i></button>
     </div>
   </div>
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded",()=>{
-  var popup =document.querySelector('.popup');
-  var close =document.querySelector('.close');
-  var content =document.querySelector('.content');
+  document.addEventListener('DOMContentLoaded', () => {
+    var popup = document.querySelector('.popup');
+    var close = document.querySelector('.close');
+    var content = document.querySelector('.content');
 
-  popup.addEventListener('click', ()=> {
+    popup.addEventListener('click', () => {
       content.style.display = 'flex';
-  });
-  close.addEventListener('click', ()=> {
+    });
+    close.addEventListener('click', () => {
       content.style.display = 'none';
-  })
+    });
   });
 </script>
 {% schema %}
@@ -162,7 +171,13 @@
       "id": "headline",
       "label": "headline",
       "default": "Featured Unicorn Listings"
-    }
+    },
+    {
+      "type": "text",
+      "id": "popup_btn",
+      "label": "heading",
+            "default": "20% Off"
+    },
     {
       "type": "image_picker",
       "id": "popup_image",
@@ -171,12 +186,14 @@
     {
       "type": "text",
       "id": "popup_heading",
-      "label": "Image"
+      "label": "heading",
+        "default": "WeLLCOME"
     },
     {
       "type": "text",
       "id": "popup_text",
-      "label": "Image"
+      "label": "text",
+        "default": "Click the button below to close.""
     },
   ],
   "blocks": [
