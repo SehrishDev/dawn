@@ -34,7 +34,7 @@
   .featured_unicorn h3 {
     text-align: center;
   }
-  .content {
+  .featured_unicorn .content {
     display: none;
     position: fixed;
     top: 0;
@@ -46,7 +46,7 @@
     align-items: center;
   }
 
-  .popup-content {
+  .featured_unicorn .popup-content {
     background: white;
     padding: 20px;
     border-radius: 5px;
@@ -54,7 +54,7 @@
     text-align: center;
   }
 
-  .close {
+  .featured_unicorn .close {
     margin-top: 10px;
     padding: 5px 10px;
     background-color: #f44336;
@@ -64,26 +64,30 @@
     cursor: pointer;
     font-size: 24px;
   }
-  .popup_image {
+  .featured_unicorn .popup_image {
     width: 150px;
     border-radius: 50%;
     margin: 0 auto;
   }
-  .popup_image img {
+  .featured_unicorn .popup_image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     display: flex;
   }
-  .popup{
+  .featured_unicorn .popup {
     padding: 5px 10px;
-    background-color: rgb(11, 54, 11);
+    background-color: rgb(6, 152, 6);
     color: white;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     font-size: 24px;
     margin: 60px auto;
+  }
+  .featured_unicorn .btn_container {
+    display: flex;
+    justify-content: center;
   }
   @media screen and (max-width: 991px) {
     .featured_unicorn .inner_featured_unicorn {
@@ -121,10 +125,11 @@
     </div>
   </div>
 
-  <h3>hellooo</h3>
-  {% if section.settings.popup_btn != blank %}
-    <button class="popup">{{ section.settings.popup_btn }}</button>
-  {% endif %}
+  <div class="btn_container">
+    {% if section.settings.popup_btn != blank %}
+      <button class="popup">{{ section.settings.popup_btn }}</button>
+    {% endif %}
+  </div>
 
   <div class="content">
     <div class="popup-content">
@@ -143,16 +148,16 @@
       {% if section.settings.popup_text != blank %}
         <p>{{ section.settings.popup_text }}</p>
       {% endif %}
-      <button class="close">Close<i class="fa fa-close"></i></button>
+      <button class="close"><i class="fa fa-close"></i></button>
     </div>
   </div>
 </section>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    var popup = document.querySelector('.popup');
-    var close = document.querySelector('.close');
-    var content = document.querySelector('.content');
+    var popup = document.querySelector('.featured_unicorn .popup');
+    var close = document.querySelector('.featured_unicorn .close');
+    var content = document.querySelector('.featured_unicorn .content');
 
     popup.addEventListener('click', () => {
       content.style.display = 'flex';
@@ -176,7 +181,7 @@
       "type": "text",
       "id": "popup_btn",
       "label": "heading",
-            "default": "20% Off"
+      "default": "20% Off"
     },
     {
       "type": "image_picker",
@@ -187,14 +192,14 @@
       "type": "text",
       "id": "popup_heading",
       "label": "heading",
-        "default": "WeLLCOME"
+      "default": "WeLLCOME"
     },
     {
       "type": "text",
       "id": "popup_text",
       "label": "text",
-        "default": "Click the button below to close."
-    },
+      "default": "Click the button below to close."
+    }
   ],
   "blocks": [
     {
