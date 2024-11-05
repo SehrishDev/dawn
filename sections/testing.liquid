@@ -163,6 +163,9 @@
     popup.addEventListener('click', () => {
       content.style.display = 'flex';
     });
+    content.addEventListener('click', () => {
+      content.style.display = 'none';
+    });
     popupcontent.addEventListener('click', (event) => {
       event.stopPropagation(); // Prevents the click from bubbling up to the content div
     });
