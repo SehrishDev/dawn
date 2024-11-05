@@ -158,9 +158,13 @@
     var popup = document.querySelector('.featured_unicorn .popup');
     var close = document.querySelector('.featured_unicorn .close');
     var content = document.querySelector('.featured_unicorn .content');
+    var popupcontent = document.querySelector('.popup-content');
 
     popup.addEventListener('click', () => {
       content.style.display = 'flex';
+    });
+    popupcontent.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevents the click from bubbling up to the content div
     });
     close.addEventListener('click', () => {
       content.style.display = 'none';
