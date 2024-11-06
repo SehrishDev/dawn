@@ -63,6 +63,11 @@
     text-align: center;
     margin: 0 auto;
   }
+  .background_color{
+padding:100px 0;
+display:flex;
+justify-content:center;
+}
 </style>
 <section class="Jscode">
   <div class="container">
@@ -74,10 +79,15 @@
       <button id="button1" onclick="bu1()">Add Count</button>
       <button id="button2">Lower Count</button>
     </div>
+
     <div id="HexColor">
       <h2>Hex Color:<span id="hex"></span></h2>
       <button onclick="changeColor()">Change color hexically 🙂</button>
     </div>
+
+    <div class="background_color">
+        <button id="bg_color">BG Color</button>
+        </div>
   </div>
 </section>
 <script>
@@ -122,6 +132,19 @@
     text.innerText = color;
     body.backgroundColor = color;
   }
+
+  var bg_color = document.getElementById('bg_color'); 
+  var background_color = document.querySelector('.background_color'); 
+
+  function background(){
+ var colors = ["Red", "Green", "Blue", "Pink","Yellow"];
+ var colorlength = colors.length;
+ var bgColor = colors[Math.floor(Math.random() * colorlength)];
+ 
+ background_color.style.background= bgColor;
+
+}
+  bg_color.addEventListener('click', background);
 </script>
 {% schema %}
 {
