@@ -29,6 +29,7 @@
         },
         "variant_picker": {
           "type": "variant_picker",
+          "repeater": "{{ product.metafields.shopify[\"color-pattern\"].value }}",
           "settings": {
             "picker_type": "button",
             "swatch_shape": "square"
