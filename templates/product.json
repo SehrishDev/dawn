@@ -27,12 +27,12 @@
           "type": "price",
           "settings": {}
         },
-        "variant_picker": {
+        "variant_picker_QerYnB": {
           "type": "variant_picker",
           "repeater": "{{ product.metafields.shopify[\"color-pattern\"].value }}",
           "settings": {
             "picker_type": "button",
-            "swatch_shape": "square"
+            "swatch_shape": "circle"
           }
         },
         "quantity_selector": {
@@ -61,7 +61,7 @@
         "vendor",
         "title",
         "price",
-        "variant_picker",
+        "variant_picker_QerYnB",
         "quantity_selector",
         "buy_buttons",
         "description",
