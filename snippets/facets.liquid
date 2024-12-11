@@ -206,12 +206,17 @@
                  padding:3px 12px;
                  border-radius:10px;
                }     
-                          .active-facets.active-facets-desktop {
-    display: none;
-}
+            .active-facets.active-facets-desktop {
+                display: none;
+            }
+                 .custom_facets:nth-child(1) {
+                 }
+                 .custom_facets input{
+                   display:none;
+                 }         
                 </style>
                         <ul
-                          class="{{ visual_layout_class }}{% if filter_type == 'vertical' %} facets__list--vertical{% else %} facets__list{% endif %} list-unstyled"
+                          class=" custom_facets {{ visual_layout_class }}{% if filter_type == 'vertical' %} facets__list--vertical{% else %} facets__list{% endif %} list-unstyled"
                           role="list"
                         >
                           {%- for value in sorted_values -%}
@@ -259,6 +264,9 @@
 
                                   {{ text_value }}
                                 </div>
+                                <style>
+                                  
+                                  </style>
                               {%- else -%}
                                 <label for="{{ input_id }}" class="{{ label_class }}">
                                   <input
