@@ -211,7 +211,7 @@
             }
                  .custom_facets:nth-child(1) {
                  }
-                 .custom_facets input{
+                 .custom_facets .facets_input{
                    display:none;
                  }         
                 </style>
@@ -270,6 +270,7 @@
                               {%- else -%}
                                 <label for="{{ input_id }}" class="{{ label_class }}">
                                   <input
+                                    class="facets_input"
                                     type="checkbox"
                                     name="{{ value.param_name }}"
                                     value="{{ value.value }}"
