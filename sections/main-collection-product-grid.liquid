@@ -116,7 +116,12 @@
           %}
         </aside>
       {%- endif -%}
-
+<style>
+  .custom_collection ul{
+    display: flex;
+    flex-direction: column;
+  }
+</style>
   {% if collection.handle == 'collections' %}
   <style>
 ul#product-grid {
@@ -129,7 +134,7 @@ ul#product-grid {
   </style>
       {% endif %}
       <div
-        class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        class=" custom_collection product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         id="ProductGridContainer"
         {% if settings.animations_reveal_on_scroll %}
           data-cascade
