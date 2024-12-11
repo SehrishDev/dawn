@@ -20,6 +20,13 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
+        "fresh": "fresheness",
+        "fresh1": "Farm",
+        "fresh2": "Delivery",
+        "fresh3": "Stock",
+        "Free_Shipping": "Free_Shipping",
+        "Delivery": "Delivery in 1 Day",
+        "category": "Categories",
         "products_per_page": 16,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
