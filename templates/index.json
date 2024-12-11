@@ -79,6 +79,7 @@
     },
     "collection_hero_iUbc9Q": {
       "type": "collection_hero",
+      "disabled": true,
       "settings": {
         "background_type": "image",
         "desktop_image": "shopify://shop_images/Rectangle_546.png",
