@@ -11,7 +11,7 @@
   data-update-url="false"
   data-url="{{ product.url }}"
   {% if section.settings.image_zoom == 'hover' %}
-    data-zoom-on-hover
+    data-zoom-on-hover 
   {% endif %}
 >
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
@@ -108,7 +108,7 @@
                 {%- when 'title' -%}
                   <h2 class="product__title {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
                     {%- unless placeholder -%}
-                      {{ product.title | escape }}
+             
                     {%- else -%}
                       {{ 'onboarding.product_title' | t }}
                     {%- endunless -%}
