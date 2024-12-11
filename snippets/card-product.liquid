@@ -41,7 +41,6 @@
     endif
   -%}
   <div class="card-wrapper product-card-wrapper underline-links-hover">
-    <h3>hhhhhhhhhhhhhhhhhhffffffffffffsssssssssssh</h3>
     <div
       class="
         card card--{{ settings.card_style }}
@@ -60,8 +59,23 @@
       >
         {%- if card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+
+
+            {% if page.handle == 'main-collection-product-grid' %}
+                  <div class="extra-div">
+                    <p>This is an extra div added for the main collection product grid page!</p>
+                  </div>
+                {% endif %}
+                
+                <!-- Now render your product loop -->
+                {% for product in collection.products %}
+                  <div class="product">
+                    <!-- Product details go here -->
+                  </div>
+                  {% else %}
+
+            
             <div class="media media--transparent media--hover-effect">
-              <p>kkkkk</p>
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
                 srcset="
@@ -106,6 +120,8 @@
                 >
               {%- endif -%}
             </div>
+{% endfor %}
+            
           </div>
         {%- endif -%}
         <div class="card__content">
@@ -632,3 +648,4 @@
     </div>
   </div>
 {%- endif -%}
+              
