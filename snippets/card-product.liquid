@@ -309,6 +309,15 @@
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
 
+      <h6> {{ section.settings.Free_Shipping }}</h6> 
+             <h6> {{ section.settings.Delivery }}</h6>
+            <div class="product_details">
+            <a href="{{ product.url }}" class="btn">Product Details</a>
+              <a href="{{ product.url }}" class="wish_List">Add to wish list</a>
+            </div>
+
+
+            
             {% if template == 'collection' and card-product.variants.size > 1 %}
               {% for variable in card-product.variants %}
                 <p>{{ variant.title }}</p>
