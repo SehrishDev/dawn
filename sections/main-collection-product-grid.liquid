@@ -156,7 +156,6 @@ ul#product-grid {
         {% if settings.animations_reveal_on_scroll %}
           data-cascade
         {% endif %}
-        {{ collection.handle }}kkkkkkkkkkkkkkkkkkkkkk
       >
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
@@ -199,6 +198,8 @@ ul#product-grid {
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
+                  
+        {{ collection.handle }}kkkkkkkkkkkkkkkkkkkkkk
                   {% render 'card-product',
                     card_product: product,
                     media_aspect_ratio: section.settings.image_ratio,
