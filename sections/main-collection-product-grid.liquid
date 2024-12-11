@@ -156,6 +156,7 @@ ul#product-grid {
         {% if settings.animations_reveal_on_scroll %}
           data-cascade
         {% endif %}
+        {{ collection.handle }}
       >
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
