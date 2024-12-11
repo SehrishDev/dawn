@@ -178,7 +178,7 @@
                         </div>
                       {%- endif -%}
                       <fieldset class="facets-wrap parent-wrap {% if filter_type == 'vertical' %} facets-wrap-vertical{% endif %}">
-                        <!-- <legend class="visually-hidden">{{ filter.label | escape }}</legend> -->
+                        <legend class="visually-hidden">{{ filter.label | escape }}</legend>
                         {%- liquid
                           assign sorted_values = filter.values
                           # Keep the selected values grouped together when operator is AND
@@ -188,6 +188,13 @@
                             assign sorted_values = active_filter_values | concat: inactive_filter_values
                           endif
                         -%}
+                        <style>
+                  span.facet-checkbox__text {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+                </style>
                         <ul
                           class="{{ visual_layout_class }}{% if filter_type == 'vertical' %} facets__list--vertical{% else %} facets__list{% endif %} list-unstyled"
                           role="list"
