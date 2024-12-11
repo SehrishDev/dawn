@@ -211,7 +211,7 @@
             }
                  .custom_facets:nth-child(1) {
                  }
-                 .custom_facets .facets_input{
+                 .custom_facets .facets_input_svg{
                    display:none;
                  }         
                 </style>
@@ -296,7 +296,7 @@
                                   {%- else -%}
                                     {{- 'square.svg' | inline_asset_content -}}
 
-                                    <div class="svg-wrapper">
+                                    <div class="svg-wrapper facets_input_svg">
                                       {{- 'icon-checkmark.svg' | inline_asset_content -}}
                                     </div>
                                   {%- endif -%}
