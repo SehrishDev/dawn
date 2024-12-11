@@ -593,10 +593,7 @@
         {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}
       "
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
-    >
-<h3>hhhhhhhhhhhhhhhhhhffffffffffffsssssssssssh</h3>
-
-      
+    >  
       <div
         class="card__inner{% if settings.card_style == 'standard' %} color-{{ settings.card_color_scheme }} gradient{% endif %} ratio"
       >
@@ -626,7 +623,7 @@
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ 'products.product.vendor' | t }}</div>
             {%- endif -%}
-            {% render 'price', placeholder: placeholder, show_compare_at_price: true %}
+           
           </div>
         </div>
       </div>
