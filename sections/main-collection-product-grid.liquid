@@ -134,6 +134,10 @@ ul#product-grid {
     ul{
       border:2px solid;
     }
+    .grid--4-col-desktop .grid__item {
+        /* width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4); */
+        max-width: calc(100% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
+    }
   </style>
       {% endif %}
       <div
