@@ -65,13 +65,9 @@
                   <div class="extra-div">
                     <p>This is an extra div added for the main collection product grid page!</p>
                   </div>
-                {% endif %}
+              
                 
-                <!-- Now render your product loop -->
-                {% for product in collection.products %}
-                  <div class="product">
-                    <!-- Product details go here -->
-                  </div>
+               
                   {% else %}
 
             
@@ -120,7 +116,7 @@
                 >
               {%- endif -%}
             </div>
-{% endfor %}
+  {% endif %}
             
           </div>
         {%- endif -%}
