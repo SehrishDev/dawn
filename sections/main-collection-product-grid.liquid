@@ -116,7 +116,12 @@
           %}
         </aside>
       {%- endif -%}
-
+<style>
+ul#product-grid {
+    display: flex;
+    flex-direction: column;
+}
+</style>
       <div
         class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         id="ProductGridContainer"
@@ -143,7 +148,7 @@
             class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
           >
             <div class="loading-overlay gradient"></div>
-        abcdffff    <ul
+            <ul
               id="product-grid"
               data-id="{{ section.id }}"
               class="
