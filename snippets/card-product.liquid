@@ -61,15 +61,12 @@
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
 
 
-            {% if page.handle == 'main-collection-product-grid' %}
+           
+              {% comment %}
+ {% if page.handle == 'main-collection-product-grid' %}
                   <div class="extra-div">
                     <p>This is an extra div added for the main collection product grid page!</p>
                   </div>
-                  <div class="custom_card">
-         hiiii
-       </div>
-              {% comment %}
-
    
             <div class="media media--transparent media--hover-effect">
             
@@ -116,11 +113,12 @@
                 >
               {%- endif -%}
             </div>
-              
+             {% else %}
+             {% endif %} 168
               {% endcomment %}
                 
                
-                  {% else %}
+                 
 
             
             <div class=" custom_media media media--transparent media--hover-effect">
@@ -168,7 +166,7 @@
                 >
               {%- endif -%}
             </div>
-  {% endif %}
+ 
             
           </div>
         {%- endif -%}
