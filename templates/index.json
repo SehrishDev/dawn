@@ -88,11 +88,52 @@
         "desktop_content_alignment": "centered",
         "desktop_font_color": "#121212"
       }
+    },
+    "collection_list_BGdaX7": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_nPWHLr": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fruit-and-vegetables"
+          }
+        },
+        "featured_collection_jJLPax": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "root-vegetables"
+          }
+        },
+        "featured_collection_8XVJMg": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dry-fruits"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_nPWHLr",
+        "featured_collection_jJLPax",
+        "featured_collection_8XVJMg"
+      ],
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "collection_hero_iUbc9Q"
+    "collection_hero_iUbc9Q",
+    "collection_list_BGdaX7"
   ]
 }
