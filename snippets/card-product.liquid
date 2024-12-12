@@ -310,14 +310,15 @@
             <a href="{{ product.url }}" class="btn">Product Details</a>
               <a href="{{ product.url }}" class="wish_List-{{ card_product.id }}">Add to wish list</a>
             </div>
-    <script>
-      $(document).ready(function(){
-        $('#wishlist-{{ card_product.id }}').click(function(){
-let wishlistID = '{{ card_product.id}}'';
-  localStorage.setItem("wishID-{{ card_product.id }}", wishlistID)
-      });
-      });
-    </script>
+   <script>
+  $(document).ready(function(){
+    $('#wishlist-{{ card_product.id }}').click(function(){
+      let wishlistID = '{{ card_product.id }}'; // Corrected this line
+      localStorage.setItem("wishID-{{ card_product.id }}", wishlistID);
+    });
+  });
+</script>
+
 
             
             {% if template == 'collection' and card-product.variants.size > 1 %}
