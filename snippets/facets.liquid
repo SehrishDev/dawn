@@ -188,33 +188,7 @@
                             assign sorted_values = active_filter_values | concat: inactive_filter_values
                           endif
                         -%}
-                        <style>
-                  span.facet-checkbox__text {
-                    display: flex;
-                    justify-content: space-between;
-                    width: 100%;
-                }
-                .facet-checkbox__text-label  {
-                   font-size:14px; 
-                   font-weight:500;
-                  }
-               .facet-checkbox__text .countnum{
-                 color:#6A983C;
-                 font-size:12px;
-                 font-weight:700;
-                 background: #f4f8ec;
-                 padding:3px 12px;
-                 border-radius:10px;
-               }     
-            .active-facets.active-facets-desktop {
-                display: none;
-            }
-                 ul:nth-child(2) {
-                 }
-                 .custom_facets .facets_input_svg{
-                   display:none;
-                 }         
-                </style>
+                
                         <ul
                           class=" custom_facets {{ visual_layout_class }}{% if filter_type == 'vertical' %} facets__list--vertical{% else %} facets__list{% endif %} list-unstyled"
                           role="list"
