@@ -62,11 +62,8 @@
 
 
            
-              {% comment %}
- {% if page.handle == 'main-collection-product-grid' %}
-                  <div class="extra-div">
-                    <p>This is an extra div added for the main collection product grid page!</p>
-                  </div>
+  {% if template == 'collection' %}
+                 
    
             <div class="media media--transparent media--hover-effect">
             
@@ -114,10 +111,7 @@
               {%- endif -%}
             </div>
              {% else %}
-             {% endif %} 168
-              {% endcomment %}
-                
-               
+            
                  
 
             
@@ -167,6 +161,7 @@
               {%- endif -%}
             </div>
  
+             {% endif %} 
             
           </div>
         {%- endif -%}
