@@ -213,7 +213,10 @@
                  }
                  .custom_facets .facets_input_svg{
                    display:none;
-                 }         
+                 }    
+                          .category{
+                            display:none;
+                          }
                 </style>
                         <ul
                           class=" custom_facets {{ visual_layout_class }}{% if filter_type == 'vertical' %} facets__list--vertical{% else %} facets__list{% endif %} list-unstyled"
@@ -268,7 +271,9 @@
                                   
                                   </style>
                               {%- else -%}
-                                <label for="{{ input_id }}" class="{{ label_class }}">
+                                
+                              
+                                <label for="{{ input_id }}" class="{{ label_class }}" class=" {% if aria-label =="Categories (1 selected)" %} category{% endif %}">
                                   <input
                                     class="facets_input"
                                     type="checkbox"
