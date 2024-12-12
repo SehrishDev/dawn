@@ -271,16 +271,18 @@ ul#product-grid {
         
        <input type="text" id="getdata1" >
 
-         <label for="fname">First name:</label>
-  <input type="text" id="getdata" name="fname"> 
+         <label for="fname" id="getdata">First name:</label>
+
+  <input type="text" id="data" name="fname"> 
         
 <script>
 
      document.addEventListener("DOMContentLoaded", function() {
     var data = document.getElementById('getdata');
+       var dataa = document.getElementById('data');
     
     data.addEventListener("click", function() {
-        var dataitem = data.value;
+        var dataitem = dataa.value;
         localStorage.setItem("datakey", dataitem);
     });
 });
