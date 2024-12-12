@@ -116,7 +116,7 @@
           %}
         </aside>
       {%- endif -%}
-      {% if page.handle == 'main-collection-product-grid' %}
+      {% if template == 'collection' %}
   <style>
      .custom_collection ul{
     display: flex;
@@ -130,9 +130,6 @@
     max-width: 100%;
     width: 100%;
 }
-    </style>
-{% endif %}
-<style>
   .custom_collection ul{
     display: flex;
     flex-direction: column;
@@ -235,8 +232,8 @@
   .custom__cardss {
     padding: 0px 80px 0px 30px;
 }
-   </style>
 </style>
+      {% endif %}
 
       
   {% if collection.handle == 'collections' %}
@@ -256,7 +253,7 @@ ul#product-grid {
     }
   </style>
       {% endif %}
-      <div {{ page.handle }}
+      <div  
         class=" custom_collection product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         id="ProductGridContainer"
         {% if settings.animations_reveal_on_scroll %}
