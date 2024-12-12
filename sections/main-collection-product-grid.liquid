@@ -267,6 +267,20 @@ ul#product-grid {
         {% if settings.animations_reveal_on_scroll %}
           data-cascade
         {% endif %}
+       <input type="text" id="getdata" >
+<script>
+
+     document.addEventListener("DOMContentLoaded", function() {
+    var data = document.getElementById('getdata');
+    
+    data.addEventListener("click", function() {
+        var dataitem = data.value;
+        localStorage.setItem("datakey", dataitem);
+    });
+});
+
+    </script>
+        
       > template :  {{ template }}  _#269_abcd__   collection Name : {{ collection.handle }}
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
