@@ -244,7 +244,7 @@
       padding:5px;
     }
     </style>
-    {% endif %}
+  
   <style> 
 ul#product-grid {
     display: flex;
@@ -259,7 +259,7 @@ ul#product-grid {
         max-width: calc(100% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
     }
   </style>
-      
+        {% endif %}
       <div  
         class=" custom_collection product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         id="ProductGridContainer"
