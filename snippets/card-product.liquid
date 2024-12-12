@@ -314,7 +314,8 @@
             
 <script>
    document.addEventListener("DOMContentLoaded", function() {
-    var wishlistButton = document.getElementById('wishlist-{{ Productid }}');
+    var wishlistButton1 = document.getElementById('wishlist-{{ Productid }}');
+      var wishlistButton = document.getElementByClassName('wish_List');
     
     wishlistButton.addEventListener("click", function() {
         var wishlistID = '{{ Productid }}';
