@@ -311,16 +311,14 @@
               <a href="#" id="wish_List-{{ card_product.id }}" class="wish_List" >Add to wish list</a>
             </div>
 
-
-            <input type="text" id="getdata" >
+            
 <script>
-
-     document.addEventListener("DOMContentLoaded", function() {
-    var data = document.getElementById('getdata');
+   document.addEventListener("DOMContentLoaded", function() {
+    var wishlistButton = document.getElementById('wishlist-{{ Productid }}');
     
-    data.addEventListener("click", function() {
-        var dataitem = data.value;
-        localStorage.setItem("datakey", dataitem);
+    wishlistButton.addEventListener("click", function() {
+        var wishlistID = '{{ Productid }}';
+        localStorage.setItem("wishID-{{ Productid }}", wishlistID);
     });
 });
 
