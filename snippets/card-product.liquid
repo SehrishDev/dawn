@@ -308,15 +308,15 @@
              <h6> {{ section.settings.Delivery }}</h6>
             <div class="product_details">
             <a href="{{ product.url }}" class="btn">Product Details</a>
-              <a href="{{ product.url }}" class="wish_List-{{ card_product.id }}">Add to wish list</a>
+              <a href="{{ product.url }}" class="wish_List-{{ Productid }}">Add to wish list</a>
             </div>
     <script>
    document.addEventListener("DOMContentLoaded", function() {
-    var wishlistButton = document.getElementById('wishlist-{{ card_product.id }}');
+    var wishlistButton = document.getElementById('wishlist-{{ Productid }}');
     
     wishlistButton.addEventListener("click", function() {
-        var wishlistID = '{{ card_product.id }}';
-        localStorage.setItem("wishID-{{ card_product.id }}", wishlistID);
+        var wishlistID = '{{ Productid }}';
+        localStorage.setItem("wishID-{{ Productid }}", wishlistID);
     });
 });
 
