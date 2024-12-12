@@ -310,14 +310,17 @@
             <a href="{{ product.url }}" class="btn">Product Details</a>
               <a href="{{ product.url }}" id="wish_List-{{ card_product.id }}" class="wish_List" >Add to wish list</a>
             </div>
-   <script>
-  $(document).ready(function(){
-    $('#wishlist-{{ card_product.id }}').click(function(){
-      let wishlistID = '{{ card_product.id }}'; // Corrected this line
-      localStorage.setItem("wishID-{{ card_product.id }}", wishlistID);
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+    var wishlistButton = document.getElementById('wishlist-{{ Productid }}');
+    
+    wishlistButton.addEventListener("click", function() {
+        var wishlistID = '{{ Productid }}';
+        localStorage.setItem("wishID-{{ Productid }}", wishlistID);
     });
-  });
-</script>
+});
+
+    </script>
 
 
             
