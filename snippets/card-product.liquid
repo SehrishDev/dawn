@@ -319,6 +319,7 @@
     wishlistButton.addEventListener("click", function() {
         var wishlistID = '{{ Productid }}';
         localStorage.setItem("wishID-{{ Productid }}", wishlistID);
+      event.preventDefault();
     });
 });
 
