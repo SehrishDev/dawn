@@ -216,7 +216,7 @@
                  }  
                 </style>
                         <ul
-                          class=" custom_facets {{ visual_layout_class }}{% if filter_type == 'vertical' %} facets__list--vertical{% else %} facets__list{% endif %} list-unstyled"
+                          class=" custom_facets {{ visual_layout_class }}{% if filter_type == 'vertical' %} facets__list--vertical{% else %} facets__list{% endif %} {% if forloop.index == forloop.first %}custom_svg{% endif %} list-unstyled" 
                           role="list"
                         >
                           {%- for value in sorted_values -%}
@@ -296,6 +296,7 @@
                                       {%- endif -%}
                                     </div>
                                   {%- else -%}
+
                                     
                                     {{- 'square.svg' | inline_asset_content -}}
 
