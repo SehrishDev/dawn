@@ -106,24 +106,24 @@
                 {%- endfor -%}
               </div>
             {%- endif -%}
-       <style>
-       span.facets__summary-label {
-        font-size: 18px;
-        font-weight: 700;
-        }
-      span.facet-checkbox__text-label {
-          font-size: 14px;
-           }
-       .facets__item {
-         height: 30px;
-         }
-       .filter_list:nth-child(even) svg {
-              display:none;
-          }
-         .filter_list:nth-child(odd) .countnum {
-              display:none;
-          }
-       </style>
+   <style>
+   span.facets__summary-label {
+    font-size: 18px;
+    font-weight: 700;
+    }
+  span.facet-checkbox__text-label {
+      font-size: 14px;
+       }
+   .facets__item {
+     height: 30px;
+     }
+   .filter_list:nth-child(even) svg {
+          display:none;
+      }
+     .filter_list:nth-child(odd) .countnum {
+          display:none;
+      }
+   </style>
             <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
             {% comment %} Filters for both horizontal and vertical filter {% endcomment %}
             {%- for filter in results.filters -%}
