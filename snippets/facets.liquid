@@ -298,9 +298,7 @@
                                   {%- else -%}
                                     {{- 'square.svg' | inline_asset_content -}}
 
-                                    <div class="svg-wrapper facets_input_svg">
-                                      {{- 'icon-checkmark.svg' | inline_asset_content -}}
-                                    </div>
+                                  
                                   {%- endif -%}
 
                                   {{ text_value }}
@@ -895,7 +893,8 @@
         {% endif %}
 
         {%- if results.terms -%}
-         
+          <input type="hidden" name="q" value="{{ results.terms | escape }}">
+          <input name="options[prefix]" type="hidden" value="last">
         {%- endif -%}
       </form>
     </facet-filters-form>
