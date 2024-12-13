@@ -440,93 +440,62 @@
         }
     </style>
 
+                     <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded">
+        <div class="min-value numberVal">
+            <input type="number" class="" min="0" max="100" value="{{ filter.min_value.value | money_without_currency }}"" disabled>
+        </div>
+        &nbsp;
+        <div class="range-slider">
+            <div class="progress"></div>
+            <span class="range-min-wrapper">
+                <input class="range-min" type="range" min="0" max="100"  value="{{ filter.min_value.value | money_without_currency }}"  data-max="{{ filter.range_max | money_without_currency }}">
+              
+      
+            </span>
+            <span class="range-max-wrapper">
+                <input class="range-max" type="range" min="0" max="100" value="100" data-min="0">
 
-
-<div class="flex relative justify-center items-center h-20 w-full mx-auto rounded">
-    <div class="min-value numberVal">
-        <input type="number" class="min-input" min="0" max="100" value="{{ filter.min_value.value | money_without_currency }}" disabled>
+     
+            </span>
+        </div>
+        &nbsp;
+        <div class="max-value numberVal">
+            <input type="number" class="border text-center" min="0" max="100" value="{{ filter.max_value.value | money_without_currency }}" data-min="0" data-max="{{ filter.range_max | money_without_currency }}" disabled>
+          
+        </div>
     </div>
-    &nbsp;
-    <div class="range-slider">
-        <div class="progress"></div>
-        <span class="range-min-wrapper">
-            <input class="range-min" type="range" min="0" max="100" value="{{ filter.min_value.value | money_without_currency }}" data-max="{{ filter.range_max | money_without_currency }}">
-        </span>
-        <span class="range-max-wrapper">
-            <input class="range-max" type="range" min="0" max="100" value="{{ filter.max_value.value | money_without_currency }}" data-min="0">
-        </span>
-    </div>
-    &nbsp;
-    <div class="max-value numberVal">
-        <input type="number" class="max-input" min="0" max="100" value="{{ filter.max_value.value | money_without_currency }}" data-min="0" data-max="{{ filter.range_max | money_without_currency }}" disabled>
-    </div>
-</div>
-
 
 
 
                     
- <script>
-    const range = document.querySelectorAll(".range-slider span input");
-    const progress = document.querySelector(".range-slider .progress");
-    const inputValue = document.querySelectorAll(".numberVal input");
-    const gap = 0.1; // Minimum gap between the two sliders
+    <script>
+        const range = document.querySelectorAll(".range-slider span input");
+        const progress = document.querySelector(".range-slider .progress");
+        const inputValue = document.querySelectorAll(".numberVal input");
+        const gap = 0.1;
 
-    // Event listener for the range inputs
-    range.forEach((input) => {
-        input.addEventListener("input", (e) => {
-            let minRange = parseInt(range[0].value);
-            let maxRange = parseInt(range[1].value);
+        range.forEach((input) => {
+            input.addEventListener("input", (e) => {
+                let minRange = parseInt(range[0].value);
+                let maxRange = parseInt(range[1].value);
 
-            // Prevent the range from being too narrow
-            if (maxRange - minRange < gap) {
-                if (e.target.className === "range-min") {
-                    range[0].value = maxRange - gap;
+                // Prevent the range from being too narrow
+                if (maxRange - minRange < gap) {
+                    if (e.target.className === "range-min") {
+                        range[0].value = maxRange - gap;
+                    } else {
+                        range[1].value = minRange + gap;
+                    }
                 } else {
-                    range[1].value = minRange + gap;
+                    // Update the progress bar and number inputs
+                    progress.style.left = (minRange / range[0].max) * 100 + "%";
+                    progress.style.right = 100 - (maxRange / range[1].max) * 100 + "%";
+                    inputValue[0].value = minRange;
+                    inputValue[1].value = maxRange;
                 }
-            } else {
-                // Update the progress bar and number inputs
-                progress.style.left = (minRange / range[0].max) * 100 + "%";
-                progress.style.right = 100 - (maxRange / range[1].max) * 100 + "%";
-                inputValue[0].value = minRange;
-                inputValue[1].value = maxRange;
-
-                // Update Shopify filters based on the range
-                updateShopifyFilter(minRange, maxRange);
-            }
+            });
         });
-    });
-
-    // Function to update Shopify filters based on the selected range
-    function updateShopifyFilter(minValue, maxValue) {
-        // Get the current URL and append the filter parameters
-        let url = new URL(window.location.href);
-        let searchParams = url.searchParams;
-
-        // Update the price filter range in the URL
-        searchParams.set('min_price', minValue);
-        searchParams.set('max_price', maxValue);
-
-        // Update the page URL with the new filter parameters
-        window.history.pushState({}, '', url.pathname + '?' + searchParams.toString());
-
-        // Trigger the filter update (you might need to trigger Shopify's filter logic here, depending on your setup)
-        const filterForm = document.querySelector('facet-filters-form');
-        if (filterForm) {
-            filterForm.submit();  // Submit the form if applicable
-        }
-    }
-
-    // Prevent non-numeric input for number fields
-    document.querySelectorAll('.numberVal input').forEach(input => {
-        input.addEventListener('keydown', (e) => {
-            const pattern = /[0-9]|\.|,|'| |Tab|Backspace|Enter|ArrowUp|ArrowDown|ArrowLeft|ArrowRight|Delete|Escape/;
-            if (!e.key.match(pattern)) e.preventDefault();
-        });
-    });
-</script>
-
+    </script>
                   </div>
               {% endcase %}
             {%- endfor -%}
