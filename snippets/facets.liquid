@@ -466,22 +466,9 @@
   >
             </span>
             <span class="range-max-wrapper">
-                <!-- <input class="range-max" type="range" min="0" max="100" value="100"> -->
+                <input class="range-max" type="range" min="0" max="100" value="100">
 
-               <input
-    class=" range-max"
-    name="{{ filter.max_value.param_name }}"
-    id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
-    {%- if filter.max_value.value -%}
-      value="{{ filter.max_value.value | money_without_currency }}"
-    {%- endif -%}
-    type="text"
-    inputmode="decimal"
-    placeholder="{{ filter.range_max | money_without_currency }}"
-    data-pattern="\d| |,|\."
-    data-min="0"
-    data-max="{{ filter.range_max | money_without_currency }}"
-  >
+     
             </span>
         </div>
         &nbsp;
