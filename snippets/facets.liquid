@@ -271,7 +271,19 @@
                                 
                               
                                 <label for="{{ input_id }}" class="{{ label_class }}">
-                         
+                                  <input
+                                    class="facets_input"
+                                    type="checkbox"
+                                    name="{{ value.param_name }}"
+                                    value="{{ value.value }}"
+                                    id="{{ input_id }}"
+                                    {% if value.active %}
+                                      checked
+                                    {% endif %}
+                                    {% if is_disabled %}
+                                      disabled
+                                    {% endif %}
+                                  >
 
                                   {%- if presentation == 'image' -%}
                                     <div class="facets__image-wrapper">
