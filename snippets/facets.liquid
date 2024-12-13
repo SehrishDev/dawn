@@ -444,19 +444,16 @@
             <div class="progress"></div>
             <span class="range-min-wrapper">
                 <input class="range-min" type="range" min="0" max="100"  value="{{ filter.min_value.value | money_without_currency }}"  data-max="{{ filter.range_max | money_without_currency }}">
-              
-      
             </span>
             <span class="range-max-wrapper">
                 <input class="range-max" type="range" min="0" max="100" value="100" data-min="0">
-
-     
             </span>
         </div>
     </div>
 
                     
     <script>
+      // min-value numberVal max-value numberVal
         const range = document.querySelectorAll(".range-slider span input");
         const progress = document.querySelector(".range-slider .progress");
         const inputValue = document.querySelectorAll(".numberVal input");
@@ -467,19 +464,17 @@
                 let minRange = parseInt(range[0].value);
                 let maxRange = parseInt(range[1].value);
 
-                // Prevent the range from being too narrow
                 if (maxRange - minRange < gap) {
                     if (e.target.className === "range-min") {
                         range[0].value = maxRange - gap;
                     } else {
-                        range[1].value = minRange + gap;
+                      range[1].value = minRange + gap;
                     }
                 } else {
-                    // Update the progress bar and number inputs
-                    progress.style.left = (minRange / range[0].max) * 100 + "%";
-                    progress.style.right = 100 - (maxRange / range[1].max) * 100 + "%";
-                    inputValue[0].value = minRange;
-                    inputValue[1].value = maxRange;
+                  progress.style.left = (minRange / range[0].max) * 100 + "%";
+                  progress.style.right = 100 - (maxRange / range[1].max) * 100 + "%";
+                  inputValue[0].value = minRange;
+                  inputValue[1].value = maxRange;
                 }
             });
         });
