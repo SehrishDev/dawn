@@ -772,7 +772,7 @@
                                 selected="selected"
                               {% endif %}
                             >
-                           
+                              {{ option.name | escape }} 
                             </option>
                           {%- endfor -%}
                         </select>
