@@ -448,8 +448,28 @@
         <div class="range-slider">
             <div class="progress"></div>
             <span class="range-min-wrapper">
-                 <input
-    class="field__input"
+                <!-- <input class="range-min" type="range" min="0" max="100" value="25"> -->
+              
+                <input
+    class="field__input range-min"
+    name="{{ filter.min_value.param_name }}"
+    id="{{ id_prefix }}{{ filter.label | escape }}-GTE"
+    {%- if filter.min_value.value -%}
+      value="{{ filter.min_value.value | money_without_currency }}"
+    {%- endif -%}
+    type="text"
+    inputmode="decimal"
+    placeholder="0"
+    data-pattern="\d| |,|\."
+    data-min="0"
+    data-max="{{ filter.range_max | money_without_currency }}"
+  >
+            </span>
+            <span class="range-max-wrapper">
+                <!-- <input class="range-max" type="range" min="0" max="100" value="100"> -->
+
+               <input
+    class="field__input range-max"
     name="{{ filter.max_value.param_name }}"
     id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
     {%- if filter.max_value.value -%}
@@ -463,13 +483,11 @@
     data-max="{{ filter.range_max | money_without_currency }}"
   >
             </span>
-            <span class="range-max-wrapper">
-                <input class="range-max" type="range" min="0" max="100" value="100">
-            </span>
         </div>
         &nbsp;
         <div class="max-value numberVal">
             <input type="number" class="border text-center" min="0" max="100" value="75" disabled>
+          
         </div>
     </div>
 
