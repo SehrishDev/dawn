@@ -448,7 +448,7 @@
         <div class="range-slider">
             <div class="progress"></div>
             <span class="range-min-wrapper">
-                <input class="range-min" type="range" min="0" max="100"  value="{{ filter.min_value.value | money_without_currency }}">
+                <input class="range-min" type="range" min="0" max="100" data-min="0"  data-max="{{ filter.range_max | money_without_currency }}"  value="{{ filter.min_value.value | money_without_currency }}">
               
       
             </span>
@@ -460,7 +460,7 @@
         </div>
         &nbsp;
         <div class="max-value numberVal">
-            <input type="number" class="border text-center" min="0" max="100" value="{{ filter.max_value.value | money_without_currency }}"  data-max="{{ filter.range_max | money_without_currency }}" disabled>
+            <input type="number" class="border text-center" min="0" max="100" value="{{ filter.max_value.value | money_without_currency }}" data-min="0"  data-max="{{ filter.range_max | money_without_currency }}" disabled>
           
         </div>
     </div>
