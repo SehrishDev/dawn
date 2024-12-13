@@ -295,7 +295,13 @@
                                         }}
                                       {%- endif -%}
                                     </div>
-                                
+                                  {%- else -%}
+                                    <div>
+                                    {{- 'square.svg' | inline_asset_content -}}
+
+                                    <div class="svg-wrapper facets_input_svg">
+                                      {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                                    </div></div>
                                   {%- endif -%}
 
                                   {{ text_value }}
