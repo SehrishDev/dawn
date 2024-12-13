@@ -440,10 +440,6 @@
         }
     </style>
  <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded">
-        <div class="min-value numberVal">
-            <input type="number" class="" min="0" max="100" value="{{ filter.min_value.value | money_without_currency }}"" disabled>
-        </div>
-        &nbsp;
         <div class="range-slider">
             <div class="progress"></div>
             <span class="range-min-wrapper">
@@ -456,11 +452,6 @@
 
      
             </span>
-        </div>
-        &nbsp;
-        <div class="max-value numberVal">
-            <input type="number" class="border text-center" min="0" max="100" value="{{ filter.max_value.value | money_without_currency }}" data-min="0" data-max="{{ filter.range_max | money_without_currency }}" disabled>
-          
         </div>
     </div>
 
