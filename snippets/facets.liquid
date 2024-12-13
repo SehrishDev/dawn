@@ -351,7 +351,6 @@
                     </div>
                   </div>
                 {% when 'price_range' %}    
-        <p>heelooo worldd</p>
                 
                   <div
                     id="Details-{{ filter.param_name | escape }}-{{ section.id }}"
@@ -388,6 +387,9 @@
                         {% render 'price-facet', filter: filter, id_prefix: 'Filter-', filter_type: filter_type %}
                       </price-range>
                     </div>
+
+                    
+        <p>heelooo worldd</p>
                   </div>
               {% endcase %}
             {%- endfor -%}
