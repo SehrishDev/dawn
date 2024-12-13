@@ -895,8 +895,7 @@
         {% endif %}
 
         {%- if results.terms -%}
-          <input type="hidden" name="q" value="{{ results.terms | escape }}">
-          <input name="options[prefix]" type="hidden" value="last">
+         
         {%- endif -%}
       </form>
     </facet-filters-form>
@@ -919,7 +918,7 @@
         {%- endif -%}
       </span>
     </h2>
-  
+    {%- render 'loading-spinner' -%}
   </div>
   {%- if filter_type == 'drawer' -%}
     <facet-filters-form class="facets facets-pill small-hide">
