@@ -245,7 +245,7 @@
                                 {%- endif -%}
                               </span>
                             {%- endcapture -%}
-                    sdfg
+                  
                             <li class="list-menu__item facets__item{% if forloop.index > show_more_number and filter_type == 'vertical' %} show-more-item hidden{% endif %}">
                               {%- if presentation == 'swatch' -%}
                                 <div class="{{ label_class }}">
@@ -295,12 +295,7 @@
                                         }}
                                       {%- endif -%}
                                     </div>
-                                  {%- else -%}
-                                    {{- 'square.svg' | inline_asset_content -}}
-
-                                    <div class="svg-wrapper facets_input_svg">
-                                      {{- 'icon-checkmark.svg' | inline_asset_content -}}
-                                    </div>
+                                
                                   {%- endif -%}
 
                                   {{ text_value }}
@@ -620,7 +615,6 @@
                                   )
                                 </span>
                               {%- endcapture -%}
-lkjh
                               <li class="mobile-facets__item list-menu__item">
                                 {% if presentation == 'swatch' %}
                                   <div class="{{ label_class }}">
