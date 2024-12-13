@@ -151,7 +151,7 @@
                             {{ 'products.facets.filter_and_operator_subtitle' | t }}
                           </span>
                         {%- endif -%}
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
+                        <!-- {{- 'icon-caret.svg' | inline_asset_content -}} -->
                       </div>
                     </div>
                     <div
@@ -270,7 +270,7 @@
                               {%- else -%}
                                 
                               
-                                <label for="{{ input_id }}" class="{{ label_class }}">
+                                <label for="{{ input_id }}" class="{{ label_class }}" >
                                   <input
                                     class="facets_input"
                                     type="checkbox"
@@ -298,7 +298,7 @@
                                   {%- else -%}
                                     {{- 'square.svg' | inline_asset_content -}}
 
-                                    <div class="svg-wrapper facets_input_svg" class=" {% if aria-label =="Categories (1 selected)" %} category{% endif %}">
+                                    <div class="svg-wrapper facets_input_svg">
                                       {{- 'icon-checkmark.svg' | inline_asset_content -}}
                                     </div>
                                   {%- endif -%}
