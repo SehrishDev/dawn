@@ -108,12 +108,15 @@
             {%- endif -%}
        <style>
        span.facets__summary-label {
-    font-size: 18px;
-    font-weight: 700;
-    }
+        font-size: 18px;
+        font-weight: 700;
+        }
       span.facet-checkbox__text-label {
           font-size: 14px;
            }
+       .facets__item {
+         height: 30px;
+         }
        </style>
             <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
             {% comment %} Filters for both horizontal and vertical filter {% endcomment %}
@@ -130,6 +133,8 @@
                   assign visual_layout_class = 'facets-layout facets-layout-list facets-layout-list--' | append: presentation
                 endif
               %}
+
+
               
               {% if forloop.index == 1 %}
                 <p>hiii</p>
@@ -137,6 +142,8 @@
                 <p>helloo</p>
               {% endif %}
 
+
+              
               {% case filter.type %}
                 {% when 'boolean', 'list' %}
                   <div
