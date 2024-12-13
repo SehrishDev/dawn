@@ -442,7 +442,7 @@
 
                      <div class="flex relative justify-center items-center h-20 w-full mx-auto rounded">
         <div class="min-value numberVal">
-            <input type="number" class="" min="0" max="100" value="25" disabled>
+            <input type="number" class="" min="0" max="100" value="{{ filter.min_value.value | money_without_currency }}"" disabled>
         </div>
         &nbsp;
         <div class="range-slider">
