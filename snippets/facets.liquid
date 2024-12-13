@@ -451,7 +451,7 @@
                 <!-- <input class="range-min" type="range" min="0" max="100" value="25"> -->
               
                 <input
-    class="field__input range-min"
+    class=" range-min"
     name="{{ filter.min_value.param_name }}"
     id="{{ id_prefix }}{{ filter.label | escape }}-GTE"
     {%- if filter.min_value.value -%}
@@ -469,7 +469,7 @@
                 <!-- <input class="range-max" type="range" min="0" max="100" value="100"> -->
 
                <input
-    class="field__input range-max"
+    class=" range-max"
     name="{{ filter.max_value.param_name }}"
     id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
     {%- if filter.max_value.value -%}
